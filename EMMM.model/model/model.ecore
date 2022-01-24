@@ -6,10 +6,11 @@
         eType="#//Asset"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="metadata" upperBound="-1"
-        eType="#//Metadata"/>
+        eType="#//Metadata" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelTrain" eSuperTypes="#//Implementation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="trainingset" eType="#//TrainingSet"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trainingset" eType="#//TrainingSet"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datafeature" upperBound="-1"
         eType="#//DataFeature"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="output" eType="#//Model"/>
@@ -22,37 +23,23 @@
         eType="#//Dataset"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="metadata" upperBound="-1"
-        eType="#//Metadata"/>
+        eType="#//Metadata" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExecutionData" abstract="true" eSuperTypes="#//Asset"/>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//Asset"/>
   <eClassifiers xsi:type="ecore:EClass" name="ModelEval" eSuperTypes="#//Implementation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="predictiions" eType="#//EvalSet"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="evalset" eType="#//EvalSet"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="evalset" eType="#//EvalSet"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//Model"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelPerformance" eSuperTypes="#//ExecutionData"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DataStore">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dataset" upperBound="-1"
-        eType="#//Dataset" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AssetStore">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
+        eType="#//Asset" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExperimentStore">
     <eStructuralFeatures xsi:type="ecore:EReference" name="experiment" upperBound="-1"
         eType="#//Experiment" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ModelStore">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="model" upperBound="-1"
-        eType="#//Model" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ImplementationStore">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="executable" upperBound="-1"
-        eType="#//Implementation" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GenericStore">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="generic" upperBound="-1"
-        eType="#//Generic" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dependency" upperBound="-1"
-        eType="#//Dependency" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Implementation" abstract="true" eSuperTypes="#//Asset">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -75,10 +62,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="seed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvalSet" eSuperTypes="#//Partition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Generic" abstract="true" eSuperTypes="#//Asset"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GenericFile" abstract="true" eSuperTypes="#//Asset"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExecutionInfo" eSuperTypes="#//ExecutionData"/>
   <eClassifiers xsi:type="ecore:EClass" name="DataOriented" eSuperTypes="#//Implementation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inpiut" eType="#//Dataset"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//Dataset"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="output" eType="#//Dataset"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dataset" eSuperTypes="#//Asset">
@@ -98,7 +85,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Asset" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="metadata" upperBound="-1"
-        eType="#//Metadata"/>
+        eType="#//Metadata" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Metadata">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -109,6 +96,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="pipelineStage" upperBound="-1"
         eType="#//Implementation"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Arbitrary" eSuperTypes="#//Generic"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ArbitraryFile" eSuperTypes="#//GenericFile"/>
   <eClassifiers xsi:type="ecore:EClass" name="GenericImpl" eSuperTypes="#//Implementation"/>
 </ecore:EPackage>
