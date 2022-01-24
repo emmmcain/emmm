@@ -4,4 +4,43 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:model="http://www.example.org/model"
-    xsi:schemaLocation="http://www.example.org/model model.ecore"/>
+    xsi:schemaLocation="http://www.example.org/model model.ecore">
+  <asset xsi:type="model:ModelTrain">
+    <metadata/>
+    <trainingset/>
+  </asset>
+  <asset xsi:type="model:Parameter">
+    <metadata/>
+  </asset>
+  <asset xsi:type="model:ModelEval">
+    <metadata/>
+  </asset>
+  <asset xsi:type="model:ModelPerformance">
+    <metadata/>
+  </asset>
+  <asset xsi:type="model:ExecutionInfo">
+    <metadata/>
+  </asset>
+  <asset xsi:type="model:DataOriented">
+    <metadata/>
+  </asset>
+  <asset xsi:type="model:Dataset">
+    <metadata/>
+    <datafeature/>
+  </asset>
+  <asset xsi:type="model:Model">
+    <metadata/>
+  </asset>
+  <asset xsi:type="model:Dependency">
+    <metadata/>
+  </asset>
+  <asset xsi:type="model:Pipeline">
+    <metadata/>
+  </asset>
+  <asset xsi:type="model:ArbitraryFile">
+    <metadata/>
+  </asset>
+  <asset xsi:type="model:GenericImpl">
+    <metadata/>
+  </asset>
+</model:AssetStore>
